@@ -3,32 +3,52 @@
 {% block title %}Mes adresses - La Boot'Ique'{% endblock %}
 
 {% block body %}
-    <a href="{{ path('account_address_new') }}" class="btn btn-info btn-sm float-right mt-2">Ajouter une adresse</a>
-    <h2>Gérer mes adresses</h2>
 
-    <div class="row mt-3">
+<div class="max-w-7xl mx-auto px-5 mt-16">
+
+    <div class="flex justify-between">
+        <h2 class="font-semibold text-3xl text-black">Adresse</h2>
+        <a href="{{ path('account_address_new') }}">
+            <button class="bg-black hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"> 
+             Ajouter une adresse
+            </button>
+        </a>
+    </div>
+
+
+    <div class="grid md:grid-cols-3 gap-4 mt-10">
+
         {% for address in app.user.addresses %}
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ address.name }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"></h6>
-                        <p class="card-text">
-                            {{ address.address }},<br>
-                            {{ address.postal }} -
-                            {{ address.city }}<br>
-                            {{ address.country }}
-                        </p>
-                        <a href="{{ path('account_address_update', {id: address.id}) }}" class="card-link">Modifier</a>
-                        <a href="{{ path('account_address_delete', {id: address.id}) }}" class="card-link">Supprimer</a>
-                    </div>
-                </div>
+            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ address.name }}</h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    {{ address.address }},<br>
+                    {{ address.postal }} -
+                    {{ address.city }}<br>
+                    {{ address.country }}.</p>
+                <a href="{{ path('account_address_update', {id: address.id}) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    Modifier
+                </a>
+                <a href="{{ path('account_address_delete', {id: address.id}) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"> <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/> </svg>
+                    Supprimer
+                </a>
             </div>
         {% else %}
-        <p>
-            Vous n'avez ajouté aucune adresse pour le moment.
-        </p>
-    {% endfor %}
+            <p>Vous n'avez ajouté aucune adresse pour le moment.</p>
+        {% endfor %}
+
     </div>
-    <a title="Retour vers votre espace membres"href="{{ path('account') }}">Retourner à mon compte</a>
+
+    <a title="Retour vers votre espace membres"href="{{ path('account') }}">
+        <button class="bg-black text-white text-sm py-2 px-4 font-semibold mt-6 rounded focus:outline-none focus:shadow-outline h-10">
+            Retourner à mon compte
+        </button>
+    </a>
+
+</div>
 {% endblock %}

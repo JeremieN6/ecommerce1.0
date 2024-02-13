@@ -16,21 +16,37 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label'=> 'Prénom'
+                'label'=> 'Prénom',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('lastname', TextType::class, [
-                'label'=> 'Nom'
+                'label'=> 'Nom',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('email', EmailType::class, [
-                'label'=> 'Email'
+                'label'=> 'Email',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('content', TextareaType::class, [
-                'label'=> 'Message'
+                'label'=> 'Message',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-50'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
                 'attr' => [
-                    'class' => 'btn btn-outline-success'
+                    'class' => 'w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
         ;

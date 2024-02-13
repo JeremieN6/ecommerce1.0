@@ -21,22 +21,36 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'disabled' => true,
-                'label' => 'Adresse email'
+                'label' => 'Adresse email',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('firstname', TextType::class, [
                 'disabled' => true,
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],        
             ])
             ->add('lastname', TextType::class, [
                 'disabled' => true,
-                'label' => 'Nom de famille'
+                'label' => 'Nom de famille',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],        
             ])
             ->add('old_password', PasswordType::class, [
                 'label' => 'Mot de passe actuel',
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => 'Veuillez saisir votre mot de passe actuel'
-                ]
+                    'placeholder' => 'Veuillez saisir votre mot de passe actuel',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
             ])
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -45,11 +59,15 @@ class ChangePasswordType extends AbstractType
                 'required' => true,
                 'first_options'  => [
                     'label' => 'Nouveau mot de passe',
-                    'attr' => ['placeholder' => 'Saisir mot de passe souhaité']
+                    'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
+                    'attr' => ['placeholder' => 'Saisir mot de passe souhaité',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10']
                 ],
                 'second_options' => [
                     'label' => 'Répétez mot de passe',
-                    'attr' => ['placeholder' => 'Confirmer mot de passe ']
+                    'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
+                    'attr' => ['placeholder' => 'Confirmer mot de passe ',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10']
                 ],
                 'mapped' => false,
                 'attr' => [
@@ -69,7 +87,7 @@ class ChangePasswordType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer modifications',
                 'attr' => [
-                    'class' => 'btn btn-outline-success'
+                    'class' => 'w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
         ;

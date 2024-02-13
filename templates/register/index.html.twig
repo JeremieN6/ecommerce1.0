@@ -1,5 +1,61 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_login.html.twig' %}
 
 {% block body %}
-    {{form(form)}}
+
+ 
+
+  <div
+  class="container max-w-md mx-auto xl:max-w-3xl h-full flex bg-white rounded-lg shadow mt-44 overflow-hidden"
+>
+  <div class="relative hidden xl:block xl:w-1/2 h-full">
+    <img
+      class="absolute h-auto w-full object-cover"
+      src="https://images.unsplash.com/photo-1541233349642-6e425fe6190e"
+      alt="my zomato"
+    />
+  </div>
+  <div class="w-full xl:w-1/2 p-8">
+    <form method="post" action="#" onSubmit="return false">
+      <h1 class=" text-2xl font-bold">Inscription</h1>
+      <div>
+        <span class="text-gray-600 text-sm">
+          Vous avez déjà un compte?
+        </span>
+        <a href="{{ path('app_login') }}">
+            <span class="text-gray-700 text-sm font-semibold">
+            Se connecter  
+            </span>
+        </a>
+      </div>
+      {{ form_start(form) }}
+      <div class="mb-4 mt-6">
+        {{ form_row(form.firstname) }}
+      </div>
+      <div class="mb-4 mt-6">
+        {{ form_row(form.lastname) }}
+      </div>
+      <div class="mb-4 mt-6">
+        {{ form_row(form.email) }}
+      </div>
+      <div class="mb-4 mt-6">
+        {{ form_row(form.password) }}
+      </div>
+      <div class="flex items-center mt-6">
+        <a
+          class="inline-block align-baseline text-sm text-gray-600 hover:text-gray-800"
+          href="#"
+        >
+          Mot de passe oublié ? 
+        </a>
+      
+        <div class="w-full">
+            {{ form_row(form.submit) }}
+        </div>
+      </div>
+      {{ form_end(form) }}
+    </form>
+  </div>
+</div>
+
+
 {% endblock %}

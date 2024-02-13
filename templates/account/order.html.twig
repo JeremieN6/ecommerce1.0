@@ -3,9 +3,12 @@
 {% block title %}Ma commande - La Boot'Ique'{% endblock %}
 
 {% block body %}
-    <h2>Commande n° {{order.reference}}</h2>
+<div class="max-w-7xl mx-auto px-5 mt-16">
+    <div class="flex justify-start">
+        <h2 class="font-semibold text-3xl mb-3 text-black">Commande n° {{order.reference}}</h2>
+    </div>
     <hr>
-    <p>
+    <p class="text-black font-medium">
         <b>Commande passée le :</b> {{order.createdAt|date('d/m/Y')}} <br>
         <b>Statut:</b> {{
             order.state == 1 ? 'Paiment accepté' :
@@ -14,36 +17,50 @@
         <b>Référence : </b><span>{{order.reference}}</span><br>
         <b>Transporteur:</b> {{order.carrierName}}<br>
     </p>
-    <table class="table mt-4">
-    <thead>
-        <tr>
-            <th scope="col">Article</th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Prix unitaire </th>
-            <th scope="col">Total</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for product in order.orderDetails %}
-            <tr>
-                <td>{{product.product}}</td>
-                <td>x{{product.quantity}}</td>
-                <td>{{(product.price / 100)|number_format(2,',','.') }} €</td>
-                <td>{{(product.total / 100)|number_format(2,',','.') }} €</td>
-            </tr>  
-        {% endfor %}
-            <tr>
-                <th>Sous-total</th>
-                <td></td>
-                <td></td>
-                <td>{{(order.total / 100)|number_format(2,',','.') }} €</td>
-            </tr>
-    </tbody>
-</table>
-    <div class="text-right">
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="text-black min-w-full text-left text-sm font-light">
+                    <thead>
+                        <tr class="text-bold">
+                            <th scope="col" class="px-6 py-4 text-center">Article</th>
+                            <th scope="col" class="px-6 py-4">Quantité</th>
+                            <th scope="col" class="px-6 py-4">Prix unitaire </th>
+                            <th scope="col" class="px-6 py-4">Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-black font-medium">
+                        {% for product in order.orderDetails %}
+                            <tr class="text-black font-medium">
+                                <td class="text-center">{{product.product}}</td>
+                                <td>x{{product.quantity}}</td>
+                                <td>{{(product.price / 100)|number_format(2,',','.') }} €</td>
+                                <td>{{(product.total / 100)|number_format(2,',','.') }} €</td>
+                            </tr>  
+                        {% endfor %}
+                            <tr class="text-black font-medium">
+                                <th>Sous-total</th>
+                                <td></td>
+                                <td></td>
+                                <td>{{(order.total / 100)|number_format(2,',','.') }} €</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+   
+    <div class="text-black text-right">
         <b>Livraison :</b> {{(order.carrierPrice / 100)|number_format(2,',','.') }} €<br>
         <b>Total : </b> {{((order.carrierPrice + order.total) / 100)|number_format(2,',','.') }} €
     </div>
-    <a title="Retour vers votre espace membres"href="{{ path('account') }}">Retourner à mon compte</a>
+    <a title="Retour vers votre espace membres"href="{{ path('account') }}">
+        <button class="bg-black text-white text-sm py-2 px-4 font-semibold mt-6 rounded focus:outline-none focus:shadow-outline h-10">
+            Retourner à mon compte
+        </button>
+    </a>
+</div>
 {% endblock %}

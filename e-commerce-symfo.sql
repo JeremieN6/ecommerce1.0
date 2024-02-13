@@ -72,7 +72,8 @@ CREATE TABLE `carrier` (
 
 INSERT INTO `carrier` (`id`, `name`, `description`, `price`) VALUES
 (1, 'Chronopost', 'Livraison standard à domicile en 2 jours ouvrés.', 400),
-(2, 'La Poste', 'Si vous préférez trouver dans votre boite à lettres un avis de passage à la place de votre commande.', 190);
+(2, 'La Poste', 'Si vous préférez trouver dans votre boite à lettres un avis de passage à la place de votre commande.', 190),
+(3, 'Sans Transporteur', 'Uniquement pour les produits digitaux.', 0);
 
 -- --------------------------------------------------------
 

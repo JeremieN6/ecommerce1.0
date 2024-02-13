@@ -3,8 +3,15 @@
 {% block title %}Nous contacter - La Boot'Ique'{% endblock %}
 
 {% block body %}
-    <h3 class="mb-3">Envoyez nous votre message</h3>
+<div class="container max-w-md mx-auto xl:max-w-3xl h-full bg-white mt-24 overflow-hidden">
+    <h2 class="text-4xl mb-5 text-black font-bold">Envoyez nous un message</h2>
     {{form(form)}}
+    <a title="Retour vers votre espace membres" href="{{ path('account') }}">
+        <button class="w-full bg-zinc-100 hover:bg-grey-900 text-black text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10 btn">
+            Retourner à mon compte
+        </button>
+    </a>
+</div>
     
     {% for message in app.flashes('notice') %}
     <div class="alert alert-success">

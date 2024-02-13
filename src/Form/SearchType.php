@@ -40,8 +40,10 @@ class SearchType extends AbstractType
                 'label' => 'Mots-clés:',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Votre recherche'
-                ]
+                    'placeholder' => 'Votre recherche',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('categories', EntityType::class, [
                 'label' => false,
@@ -50,11 +52,14 @@ class SearchType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
+                'attr' => [
+                    'class' => 'relative float-left'
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn btn-outline-info w-100'
+                    'class' => 'w-full bg-black hover:bg-grey-900 text-white text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
         ;

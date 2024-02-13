@@ -3,37 +3,61 @@
 {% block title %}Mes commandes - La Boot'Ique'{% endblock %}
 
 {% block body %}
-    <h2>Voir mes commandes</h2>
-    {% if orders %}
-        <table class="table mt-4">
-            <thead>
-                <tr>
-                    <th scope="col">Articles</th>
-                    <th scope="col">Statut</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Passée le </th>
-                    <th scope="col">Référence</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
-                    <tr>
-                        <td>{{order.totalQuantity}}</td>
-                        <td>{{
-                            order.state == 1 ? 'Paiment accepté' :
-                            order.state == 2 ? 'En préparation' : 'Expédiée'
-                        }}</td>
-                        <td>{{((order.carrierPrice + order.total) / 100)|number_format(2,',','.') }} €</td>
-                        <td>{{order.createdAt|date('d/m/Y')}}</td>
-                        <td><span class="badge badge-secondary">{{order.reference}}</span></td>
-                        <td><a href="{{ path('account_order', {'reference' : order.reference}) }}">Consulter commande</a></td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="max-w-7xl mx-auto px-5 mt-16">
+        <div class="flex justify-start">
+            <h2 class="font-semibold text-3xl text-black">Voir mes commandes</h2>
+        </div>
+         {% if orders %}
+        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com --> 
+            <div class="flex flex-col">
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                    <table class="min-w-full text-left text-sm font-light">
+                        <thead class="border-b bg-white font-medium">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-center">Articles</th>
+                            <th scope="col" class="px-6 py-4">Statut</th>
+                            <th scope="col" class="px-6 py-4">Total</th>
+                            <th scope="col" class="px-6 py-4">Passé le</th>
+                            <th scope="col">Référence</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tbody>
+                                {% for order in orders %}
+                                    <tr class="text-black font-medium">
+                                        <td class="text-center">{{order.totalQuantity}}</td>
+                                        <td>{{
+                                            order.state == 1 ? 'Paiment accepté' :
+                                            order.state == 2 ? 'En préparation' : 'Expédiée'
+                                        }}</td>
+                                        <td>{{((order.carrierPrice + order.total) / 100)|number_format(2,',','.') }} €</td>
+                                        <td>{{order.createdAt|date('d/m/Y')}}</td>
+                                        <td><span class="badge badge-secondary">{{order.reference}}</span></td>
+                                        <td>
+                                            <a href="{{ path('account_order', {'reference' : order.reference}) }}">
+                                                <button class="bg-black text-white text-sm py-2 px-4 font-semibold mt-6 rounded focus:outline-none focus:shadow-outline h-10">
+                                                    Consulter commande
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <a title="Retour vers votre espace membres"href="{{ path('account') }}">
+                <button class="bg-black text-white text-sm py-2 px-4 font-semibold mt-6 rounded focus:outline-none focus:shadow-outline h-10">
+                    Retourner à mon compte
+                </button>
+            </a>
+    </div>
     {% else %}
         <p>Vous n'avez effectué aucune commande pour le moment.</p>        
     {% endif %}
-    <a title="Retour vers votre espace membres"href="{{ path('account') }}">Retourner à mon compte</a>
 {% endblock %}

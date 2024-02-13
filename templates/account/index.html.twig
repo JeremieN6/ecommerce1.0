@@ -3,10 +3,10 @@
 {% block title %}Mon compte - La Boot'Ique{% endblock %}
 
 {% block body %}
-    <h2>Mon compte</h2>
+    {# <h2>Mon compte</h2>
     Bienvenue dans votre espace membre {{ app.user.firstname }}.
-    <hr>
-    {% for message in app.flashes('notice') %}
+    <hr> #}
+    {# {% for message in app.flashes('notice') %}
         <div class="alert alert-success">
             {{ message }}
         </div>
@@ -26,7 +26,63 @@
         <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action">
             Modifier mot de passe
         </a>
+    </div> #}
+
+    <div class="max-w-7xl mx-auto px-5 mt-16">
+
+        <div class="text-center">
+            <h2 class="font-semibold text-3xl text-black">Mon compte</h2>
+            <p class="max-w-md mx-auto mt-2">
+                Bienvenue dans votre espace personnel {{ app.user.firstname }}.
+            </p>
+        </div>
+    
+    
+        <div class="grid md:grid-cols-4 gap-4 mt-10">
+    
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="flex gap-2 items-start">
+                <a href="{{ path('admin') }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Back office</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        Si vous voyez cette option, cela signifie que vous êtes un <strong>administrateur</strong> de cette boutique e-Commerce. <br>
+                        Vous aurez donc la possibilité de gérer les produits (ajout, modification, suppression), gérer les catégories etc. 
+                    </p>
+                </a>
+            </div>
+            {% endif %}
+    
+    
+            <div class="flex gap-2 items-start">
+                <a href="{{ path('account_password') }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Modifier le mot de passe</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        Gérez toutes vos informations personnelles ici.
+                    </p>
+                </a>
+            </div>
+    
+    
+            <div class="flex gap-2 items-start">
+                <a href="{{ path('account_orders') }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Mes commandes</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        Accédez à l'historique de vos commandes et leurs informations.
+                    </p>
+                </a>
+            </div>
+    
+    
+            <div class="flex gap-2 items-start">
+                <a href="{{ path('account_address') }}" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Mes adresses</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        Gérer vos adresses de livraisons.
+                    </p>
+                </a>
+            </div>
+        </div>
     </div>
 
-
+    
 {% endblock %}

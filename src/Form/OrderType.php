@@ -23,7 +23,10 @@ class OrderType extends AbstractType
                 'class' => Address::class,
                 'choice_label' => 'addressLabel', //callback récupérant une chaine concaténée
                 'choices' => $user->getAddresses(),
-                'expanded' => true
+                'expanded' => true,
+                'attr' => [
+                    'class' => 'bg-gray-100 font-medium py-5 rounded-lg shadow-gray-900 px-5'
+                ]
             ])
             ->add('carriers', EntityType::class, [
                 'label' => 'Choisissez votre transporteur',
@@ -35,7 +38,7 @@ class OrderType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Passer au paiment', 
                 'attr' => [
-                    'class' => "btn btn-outline-success btn-block"
+                    'class' => "w-full bg-black hover:bg-grey-900 text-white text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
                 ]
             ])
         ;

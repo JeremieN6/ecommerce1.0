@@ -22,22 +22,29 @@ class RegisterType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom',
+                    'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Length(['min' => 3]),
                 'attr' => [
-                    'placeholder' => 'Jean'
+                    'placeholder' => 'Jean',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Nom de famille',
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Length(['min' => 3]),
                 'attr' => [
-                    'placeholder' => 'Passe'
+                    'placeholder' => 'Passe',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
             ->add('email', EmailType::class, [
+                'label' => 'Email',
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Email(),
                 'attr' => [
-                    'placeholder' => 'jean.passe@hotgmail.com'
+                    'placeholder' => 'jean.passe@hotgmail.com',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -47,11 +54,18 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'first_options'  => [
                     'label' => 'Mot de passe',
-                    'attr' => ['placeholder' => 'Saisir mot de passe ']
+                    'attr' => ['placeholder' => 'Saisir mot de passe ',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
+
                 ],
                 'second_options' => [
                     'label' => 'Répétez mot de passe',
-                    'attr' => ['placeholder' => 'Confirmer mot de passe ']
+                    'attr' => ['placeholder' => 'Confirmer mot de passe ',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                    'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 ],
                 'mapped' => false,
                 'attr' => [
@@ -69,9 +83,9 @@ class RegisterType extends AbstractType
                 ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider',
+                'label' => 'S\'inscrire',
                 'attr' => [
-                    'class' => 'btn btn-outline-success'
+                    'class' => 'w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
         ;

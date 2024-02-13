@@ -6,11 +6,19 @@
     <meta name="description" content="Une boutique géniale, avec pleins d'articles géniaux et beau et tout...">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
+    <meta name="description" content="Free open source Tailwind CSS Store template">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+    
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+	
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     <title>{% block title %}La boot'ique{% endblock %}</title>
 
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+    {# <link href="{{asset('assets/css/carousel.css')}}" rel="stylesheet"> #}
+    <link href="{{asset('assets/css/new-style.css')}}" rel="stylesheet">
+    {# <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"> #}
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -24,14 +32,47 @@
         {% else %}
             {% set margin = 'mt-5' %}
         {% endif %}
-        <div class="container {{margin ?? 0}}">
+        <div class=" {{margin ?? 0}}">
             {% block body %}{% endblock %}
         </div>
     </main>
         <footer class="footer-custom">
             {% include "_footer.html.twig" %}
         </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('carouselExampleCaptions');
+    if (!carousel) return; // Vérifier si l'élément existe
+
+    const prevButton = carousel.querySelector('[data-te-slide="prev"]');
+    const nextButton = carousel.querySelector('[data-te-slide="next"]');
+
+    prevButton.addEventListener('click', function() {
+        console.log('Clic sur le bouton précédent');
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        console.log('Item actif :', activeItem);
+        const prevItem = activeItem.previousElementSibling || carousel.lastElementChild;
+        console.log('Item précédent :', prevItem);
+        activeItem.classList.remove('active');
+        prevItem.classList.add('active');
+    });
+
+    nextButton.addEventListener('click', function() {
+        console.log('Clic sur le bouton suivant');
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        console.log('Item actif :', activeItem);
+        const nextItem = activeItem.nextElementSibling || carousel.firstElementChild;
+        console.log('Item suivant :', nextItem);
+        activeItem.classList.remove('active');
+        nextItem.classList.add('active');
+    });
+});
+
+        </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v3.x.x/dist/alpine.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="{{asset('assets/js/bootstrap.bundle.js')}}"></script>
 </body>
 </html>

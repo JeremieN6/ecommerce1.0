@@ -3,17 +3,19 @@
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-5">
-            <img class="img-fluid" src="/uploads/{{product.image}}" alt="{{product.name}}">
+    <div class="max-w-7xl mx-auto lg:px-5 mt-16 text-black">
+        <div class="lg:flex lg:flex-row lg:w-full md:flex md:flex-col md:justify-center md:items-center">
+            <div class="lg:w-3/6 md:w-max px-6">
+                <img class="img-fluid" src="/uploads/{{product.image}}" alt="{{product.name}}">
+            </div>
+            <div class="lg:w-3/6 md:w-max px-6">
+                <h3 class="text-black font-bold text-xl mb-3">{{product.name}}</h3>
+            <p class="text-gray-500 font-medium text-sm mb-3">{{product.subtitle}}</p>
+            <span class="text-black-500 font-bold"> Prix : {{(product.price / 100 )|number_format(2,',', '.')}} € </span>
+            <hr class="mb-3 mt-3">
+            <p class="mb-3">{{product.description}}</p>
+        <a href="{{ path('add_to_cart', {id: product.id}) }}"class="bg-black hover:bg-grey-900 text-white text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10 btn">Ajouter au panier</a>
+            </div>
         </div>
-        <div class="col-md-7 my-auto">
-            <h3>{{product.name}}</h3>
-            <p>{{product.subtitle}}</p>
-            <span class="product-price">{{(product.price / 100 )|number_format(2,',', '.')}} € </span>
-            <hr>
-            <p>{{product.description}}</p>
-        <a href="{{ path('add_to_cart', {id: product.id}) }}"class="btn btn-outline-success">Ajouter au panier</a>
-        </div>
-    </div>   
+    </div>
 {% endblock %}

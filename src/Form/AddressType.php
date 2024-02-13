@@ -19,41 +19,73 @@ class AddressType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom de l\'adresse',
                 'attr' => [
-                    'placeholder' => 'ex: Domicile'
+                    'placeholder' => 'ex: Pavillon - Résidence - Appartemment N°...',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom'
+                'label' => 'Prénom',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('lastname', TextType::class, [
-                'label' =>'Nom de famille'
+                'label' =>'Nom de famille',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('company', TextType::class, [
                 'label' => 'Société (facultatif)',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'required' => false,
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adresse postale',
                 'attr' => [
-                    'placeholder' => 'ex: 8 rue de Lasoif'
-                ]
+                    'placeholder' => 'ex: 8 rue de Lasoif',
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('postal', TextType::class, [
-                'label' => 'Code postal'
+                'label' => 'Code postal',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
+
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville'
+                'label' => 'Ville',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('country', CountryType::class, [
-                'label' => 'Pays'
+                'label' => 'Pays',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('phone', TelType::class, [
-                'label' => 'Téléphone'
+                'label' => 'Téléphone',
+                'attr' => [
+                    'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
+                ],
+                'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Enregistrer adresse', 
+                'label' => 'Enregistrer adresse',
                 'attr' => [
-                    'class' => 'btn btn-info btn-block mt-2'
+                    'class' => 'w-full bg-gray-800 hover:bg-grey-900 mt-6 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10'
                 ]
                 
             ])

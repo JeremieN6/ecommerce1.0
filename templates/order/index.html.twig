@@ -3,8 +3,40 @@
 {% block title %}Ma commande - La Boot'Ique{% endblock %}
 
 {% block body %}
-<h2>Je valide ma commande</h2>
-<div class="row">
+<div class="max-w-7xl mx-auto px-5 mt-16">
+<h2 class="font-semibold text-3xl mb-3 px-4 text-black">Je valide ma commande</h2>
+
+    <div class="lg:flex lg:flex-row lg:justify-center md:flex md:flex-row md:justify-center">
+        <div class="lg:w-1/2 lg:px-4 md:w-1/2 md:px-4 mb-5">
+            {% set formHtml %}
+                {{form_start(form, {action:path('order_add')})}}
+                {{ form_label(form.addresses, 'Choisissez votre adresse de livraison', {'label_attr': {'class': 'text-gray-600 font-bold'}}) }}
+                <a class="mb-3" href="{{ path('account_address_new') }}">Ajouter nouvelle adresse</a>
+                {{form_end(form)}}
+            {% endset %}
+            {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+        </div>
+        <div class="lg:w-1/2 lg:px-4">
+            <strong class="summary-label">Récapitulatif :</strong>
+            <div class="bg-gray-100 font-medium py-5 rounded-lg shadow-gray-900">
+                {% for item in cart.products %}
+                    <div class="flex justify-between px-9 ">
+                        <div class="col-2 my-auto"><img width="50px" height="50px" src="/uploads/{{ item.product.image }}" alt="{{ item.product.name }}"></div>
+                        <div class="col-8 my-auto">{{ item.product.name }}</div>
+                        <div class="col-2 my-auto">x{{ item.quantity }}</div>
+                    </div>
+                {% endfor %}
+                <hr>
+                <div class="flex justify-between px-9 mt-5">
+                    <div class="col-9 font-weight-bold">Total</div>
+                    <div class="col-3 font-weight-bold">{{ (totalPrice / 100)|number_format(2,',','.') }} €</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+{# <div class="row">
     <div class="col-md-6">
         {% set formHtml %}
             {{form_start(form, {action:path('order_add')})}}
@@ -12,7 +44,6 @@
             <a class="d-block mb-3" href="{{ path('account_address_new') }}">Ajouter nouvelle adresse</a>
             {{form_end(form)}}
         {% endset %}
-        {{ formHtml|replace({'[br]' : '<br>'})|raw }}
     </div>
     <div class="col-md-6">
         <strong class="summary-label">Récapitulatif :</strong>
@@ -31,6 +62,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> #}
 
 {% endblock %}
