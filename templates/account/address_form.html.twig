@@ -3,7 +3,7 @@
 {% block title %}Mes adresses - La Boot'Ique'{% endblock %}
 
 {% block body %}
-<div class="container max-w-md mx-auto xl:max-w-3xl h-full bg-white rounded-lg shadow mt-24 overflow-hidden">
+<div class="container max-w-md mx-auto pt-3 pb-3 xl:max-w-3xl h-full bg-white rounded-lg shadow mt-24 overflow-hidden">
     <h2 class="text-4xl mb-5 text-black font-bold">Enregistrer une adresse</h2>
     {{form_start(form)}}
     <div class="row">
@@ -18,11 +18,11 @@
         <div class="col-md-6">{{form_row(form.company)}}</div>
         <div class="col-md-12">{{form_row(form.submit)}}</div>
     </div>
+        <a title="Retour vers votre espace membres" href="{{ path('account') }}">
+            <button class="w-full bg-zinc-100 hover:bg-grey-900 text-black text-sm py-2 px-4 mt-3 font-semibold rounded focus:outline-none focus:shadow-outline h-10 btn">
+                Retourner à mon compte
+            </button>
+        </a>
 </div>
     {{form_end(form)}}
-    <a title="Retour vers votre espace membres" href="{{ path('account') }}">
-        <button class="w-full bg-zinc-100 hover:bg-grey-900 text-black text-sm py-2 px-4 mt-6 font-semibold rounded focus:outline-none focus:shadow-outline h-10 btn">
-            Retourner à mon compte
-        </button>
-    </a>
 {% endblock %}
