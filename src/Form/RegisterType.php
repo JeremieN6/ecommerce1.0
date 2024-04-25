@@ -25,7 +25,7 @@ class RegisterType extends AbstractType
                     'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Length(['min' => 3]),
                 'attr' => [
-                    'placeholder' => 'Jean',
+                    'placeholder' => 'Omar',
                     'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
@@ -34,7 +34,7 @@ class RegisterType extends AbstractType
                 'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Length(['min' => 3]),
                 'attr' => [
-                    'placeholder' => 'Passe',
+                    'placeholder' => 'Sy',
                     'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
@@ -43,7 +43,7 @@ class RegisterType extends AbstractType
                 'label_attr' => ['class' => 'block text-gray-700 text-sm font-semibold mb-2'],
                 'constraints' => new Email(),
                 'attr' => [
-                    'placeholder' => 'jean.passe@hotgmail.com',
+                    'placeholder' => 'omar.sy@hotgmail.com',
                     'class' => 'text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10'
                 ]
             ])
